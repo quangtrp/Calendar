@@ -91,7 +91,15 @@ function changeMonth() {
 
 // Invoke whenever blur year input
 function onblurYearInput() {
+  selectDay.innerHTML = "";
   currentYear = parseInt(yearInput.value);
+  for (
+    let i = 0;
+    i < dayOfMonth(parseInt(selectMonth.value), currentYear);
+    i++
+  ) {
+    selectDay.innerHTML += `<option value=${i + 1}>${i + 1}</option>`;
+  }
 }
 
 showCalendar(currentMonth, currentYear);
